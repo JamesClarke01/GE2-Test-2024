@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 @export var length: float = 20
@@ -8,12 +9,14 @@ extends Node3D
 
 func drawCreatureGizmos():
 	
-	DebugDraw3D.draw_box(global_transform.origin,Quaternion.IDENTITY,Vector3(3,3,3), Color.DARK_GOLDENROD, true)
+	DebugDraw3D.draw_box(global_transform.origin,Quaternion.IDENTITY,Vector3(baseSize,baseSize,baseSize), Color.RED, true)
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if Engine.is_editor_hint():		
+		drawCreatureGizmos()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
