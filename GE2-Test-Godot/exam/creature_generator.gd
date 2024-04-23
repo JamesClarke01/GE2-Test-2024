@@ -38,8 +38,11 @@ func createCreature():
 	var sineArray = [0, 0.2, 0.4, 0.6,0.8,1 ,0.8,0.6,0.4,0.2,0] 
 	for sine in sineArray:
 		var boxSize = baseSize * remap(sine, 0, 1, 0, multiplier)
-		boxPos.x -= boxSize/2
-		DebugDraw3D.draw_box(boxPos, Quaternion.IDENTITY, Vector3(boxSize,boxSize,boxSize), Color.CHARTREUSE, true)
+		boxPos.x -= boxSize/2		
+		var bodyPart = CSGBox3D.new()
+		bodyPart.transform.origin = boxPos
+		bodyPart.size = Vector3(boxSize, boxSize, boxSize)
+		add_child(bodyPart)
 		boxPos.x -= boxSize/2
 
 
@@ -52,6 +55,7 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	drawCreatureGizmos()
+	#drawCreatureGizmos()
+	createCreature()
 	#testDraw()
 	#drawCreatureGizmos()
