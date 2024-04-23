@@ -1,5 +1,4 @@
 extends Node3D
-#Initial commit
 
 # Declare member variables here. Examples:
 # var a = 2
