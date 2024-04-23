@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvj66jeh02egv"]
+
+[ext_resource type="Script" path="res://exam/Boid.gd" id="1_u1hf6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gi3o8"]
+albedo_color = Color(1, 0.54902, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sqt0m"]
+material = SubResource("StandardMaterial3D_gi3o8")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_u1hf6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("BoxMesh_sqt0m")

@@ -34,7 +34,9 @@ func drawCreatureGizmos():
 
 func createCreature():
 	var boxPos = global_transform.origin
-
+	var headScene = load("res://headScene.tscn")
+	var head = headScene.instantiate()
+	add_child(head)
 	var sineArray = [0, 0.2, 0.4, 0.6,0.8,1 ,0.8,0.6,0.4,0.2,0] 
 	for sine in sineArray:
 		var boxSize = baseSize * remap(sine, 0, 1, 0, multiplier)
@@ -50,10 +52,11 @@ func createCreature():
 func _ready():
 	if Engine.is_editor_hint():		
 		drawCreatureGizmos()
+	createCreature()
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	createCreature()
+	pass
 	
 
