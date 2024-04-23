@@ -7,9 +7,11 @@ extends Node3D
 @export var baseSize: float = 1
 @export var multiplier: float = 5
 
-func drawCreatureGizmos():
-	
-	DebugDraw3D.draw_box(global_transform.origin,Quaternion.IDENTITY,Vector3(baseSize,baseSize,baseSize), Color.RED, true)
+func drawCreatureGizmos():		
+	for i in range(length):
+		var boxPos = global_transform.origin
+		boxPos.x -= i * baseSize
+		DebugDraw3D.draw_box(boxPos, Quaternion.IDENTITY, Vector3(baseSize,baseSize,baseSize), Color.CHARTREUSE, true)
 	
 
 # Called when the node enters the scene tree for the first time.
